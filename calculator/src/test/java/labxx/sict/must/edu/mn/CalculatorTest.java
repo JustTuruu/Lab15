@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorTest {
 
-    private final Calculator calc = new Calculator();
+    private final Calculator calc = new Calculator(); 
 
     @Test
     void testAdd() {
@@ -30,6 +30,6 @@ public class CalculatorTest {
     @Test
     void testDivideByZero() {
         assertThrows(IllegalArgumentException.class, () -> calc.divide(1.0, 0.0),
-                     "Хуваалт нь IllegalArgumentException өгнө");
+            "Хуваалт нь IllegalArgumentException өгнө");
     }
 }
