@@ -103,5 +103,5 @@ public final class Calculator {
 
         System.out.println("Result: " + result);
         scanner.close();
-    }
+    } 
 }

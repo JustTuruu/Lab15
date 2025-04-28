@@ -10,10 +10,9 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
-    # ─── Зөв байрлалтай defaults ──────────────────────
     defaults:
       run:
-        working-directory: .    # root-д байгаа бол “.”; эсвэл "./calculator" бол тэнд зааж өгнө :contentReference[oaicite:4]{index=4}
+        working-directory: .    # 1) Root хавтас бол “.” эсвэл 2) Дэд хавтас бол “./calculator” юм
 
     steps:
       - name: Checkout code
