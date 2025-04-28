@@ -1,34 +1,42 @@
+# .github/workflows/ci.yml
 name: CI Process
 
+# Хэзээ ажиллуулах
 on:
   push:
-    branches: [ develop, 'release/*' ]
+    branches:
+      - develop
+      - 'release/*'
   pull_request:
-    branches: [ develop, 'release/*' ]
+    branches:
+      - develop
+      - 'release/*'
 
 jobs:
   build-and-test:
+    # Runner-ийн орчин
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: .    # 1) Root хавтас бол “.” эсвэл 2) Дэд хавтас бол “./calculator” юм
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      # 1. Кодыг татах
+      - name: Checkout repository
+        uses: actions/checkout@v4   # :contentReference[oaicite:0]{index=0}
 
-      - name: Setup Java 17
-        uses: actions/setup-java@v4
+      # 2. Java 17 суурилуулах
+      - name: Set up Java 17
+        uses: actions/setup-java@v4 # :contentReference[oaicite:1]{index=1}
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Checkstyle Check
+      # 3. Кодын хэв маягийг шалгах (Checkstyle)
+      - name: Checkstyle validation
         run: mvn checkstyle:check
 
-      - name: Run Tests & Coverage Check
+      # 4. JUnit тестүүд ажиллуулах ба Jacoco coverage шалгах
+      - name: Run tests and check coverage
         run: mvn test jacoco:check
 
-      - name: Generate Coverage Report
+      # 5. Jacoco тайлан үүсгэх
+      - name: Generate coverage report
         run: mvn jacoco:report
