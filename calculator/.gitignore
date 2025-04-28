@@ -1,0 +1,43 @@
+# ------------ Maven ------------
+# Бүтээгдэхүүн (build) хавтас
+target/
+
+# Арын тал (backup) болон түр файлууд
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Maven Wrapper файлууд
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# ------------ Java ------------
+# Компилиастай файлууд
+*.class
+
+# Лог файлууд
+*.log
+
+# IDE‑үүдийн тохируулга
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VS Code
+.vscode/
+
+# Mac OS X тусгай файлууд
+.DS_Store
+
+*.jar
+*.war
+*.ear
