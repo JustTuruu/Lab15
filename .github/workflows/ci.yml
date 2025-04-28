@@ -1,4 +1,5 @@
 name: CI Process
+
 on:
   push:
     branches: [ develop, 'release/*' ]
@@ -9,9 +10,11 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    #  ✂ Эндээс бага зэрэг нэмнэ үү ✂
     defaults:
       run:
-        working-directory: ./calculator   # <― энд
+        working-directory: calculator
+    #  ✂ Энд дуусна ✂
 
     steps:
     - name: Checkout code
@@ -26,7 +29,7 @@ jobs:
     - name: Checkstyle Check
       run: mvn checkstyle:check
 
-    - name: Run Tests and Coverage Check
+    - name: Run Tests & Coverage Check
       run: mvn test jacoco:check
 
     - name: Generate Coverage Report
