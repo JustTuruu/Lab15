@@ -6,15 +6,14 @@ on:
   pull_request:
     branches: [ develop, 'release/*' ]
 
-jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
+ jobs:
+   build-and-test:
+     runs-on: ubuntu-latest
 
-    #  ✂ Эндээс бага зэрэг нэмнэ үү ✂
-    defaults:
-      run:
+     defaults:
+       run:
         working-directory: calculator
-    #  ✂ Энд дуусна ✂
+        working-directory: .
 
     steps:
     - name: Checkout code
